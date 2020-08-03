@@ -1,7 +1,7 @@
 /* Global Variables */
 
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-const myApiKey = "&appid=9cfe08fdaf5c2dd8435363fb4c37821e";
+const myApiKey = "&appid=9cfe08fdaf5c2dd8435363fb4c37821e&units=imperial";
 
 const generateButton = document.getElementById("generate");
 
@@ -68,9 +68,9 @@ const updateUI = async () => {
   const request = await fetch("http://localhost:8000/allData");
   try {
     const allData = await request.json();
-    document.getElementById("date").innerHTML = allData.date;
-    document.getElementById("temp").innerHTML = allData.temp;
-    document.getElementById("content").innerHTML = allData.content;
+    document.getElementById("date").innerHTML = 'Date : '+ allData.date;
+    document.getElementById("temp").innerHTML = 'Temperature : '+ allData.temp;
+    document.getElementById("content").innerHTML = 'Feelings : '+ allData.content;
   } catch (error) {
     console.log(error);
   }
